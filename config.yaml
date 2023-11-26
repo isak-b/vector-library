@@ -1,0 +1,9 @@
+paths: 
+  input: "./input/example/"
+  output: "./output/example/"
+chunks:
+  separator: "."
+  chunk_size: 256
+  chunk_overlap: 25
+embeddings: 
+  model_name_or_path: "sentence-transformers/all-MiniLM-L6-v2"

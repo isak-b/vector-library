@@ -1,0 +1,11 @@
+Heart rate measurement is an important factor in assessing health and fitness levels. It's easy to do it manually and doesn't require any special equipment.
+
+Here is a simple step-by-step guide to measure heart rate:
+
+1. Locate your pulse. You can do this by placing your index and third fingers on your neck to the side of your windpipe. Alternatively, place your fingers on your wrist below your thumb.
+
+2. Once you've located your pulse, prepare a stopwatch or a clock with a second hand.
+
+3. Count the number of beats you feel for 60 seconds.
+
+This number is your heart rate, expressed as beats per minute. Regular monitoring over time can give you insights into your cardiovascular health.

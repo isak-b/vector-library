@@ -1,0 +1,10 @@
+__pycache__/
+*.egg-info
+.DS_STORE
+.vscode/
+
+# Output
+/output/**
+
+# Don't ignore .gitkeep
+!.gitkeep
