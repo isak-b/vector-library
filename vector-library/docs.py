@@ -13,9 +13,7 @@ def load_docs(input_path: str, output_path: str = None) -> pd.DataFrame:
         with open(f"{input_path}/{doc_name}", "r") as f:
             docs.loc[i] = {"doc_id": uuid(), "doc_name": doc_name, "doc_text": f.read()}
 
-    if output_path is not None:
-        os.makedirs(output_path, exist_ok=True)
-        docs.to_csv(f"{output_path}/docs.csv", index=False)
+    save_output(docs, filename="docs.csv", output_path=output_path)
     return docs
 
 
@@ -31,8 +29,7 @@ def get_chunks(docs: pd.DataFrame, output_path: str = None, **kwargs) -> pd.Data
                 "chunk_text": chunk.page_content,
             }
 
-    if output_path is not None:
-        chunks.to_csv(f"{output_path}/chunks.csv", index=False)
+    save_output(chunks, filename="chunks.csv", output_path=output_path)
     return chunks
 
 
@@ -50,6 +47,12 @@ def get_embeddings(chunks: dict, output_path: str = None, **kwargs) -> pd.DataFr
     embeddings_expanded = pd.DataFrame(embeddings.pop("embeddings").to_list())
     embeddings = pd.concat([embeddings, embeddings_expanded], axis=1)
 
-    if output_path is not None:
-        embeddings.to_csv(f"{output_path}/embeddings.csv", index=False)
+    save_output(embeddings, filename="embeddings.csv", output_path=output_path)
     return embeddings
+
+
+def save_output(df: pd.DataFrame, filename: str, output_path: str = None) -> None:
+    """Save DataFrame to output_path"""
+    if output_path is not None:
+        os.makedirs(output_path, exist_ok=True)
+        df.to_csv(f"{output_path}/{filename}", index=False)
